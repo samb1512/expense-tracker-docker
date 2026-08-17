@@ -6,15 +6,15 @@ import sqlite3
 
 app = Flask(__name__)
 
-DATABASE = "/app/data/expenses.db"
+DATABASE = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "expenses.db"
+)
 
 
 def get_db():
-    os.makedirs("/app/data", exist_ok=True)
-
     connection = sqlite3.connect(DATABASE)
     connection.row_factory = sqlite3.Row
-
     return connection
 
 
@@ -70,16 +70,22 @@ def add_expense():
 
     if description and amount and category:
 
-        connection = get_db()
+        try:
+            amount = float(amount)
 
-        connection.execute("""
-            INSERT INTO expenses
-            (description, amount, category)
-            VALUES (?, ?, ?)
-        """, (description, float(amount), category))
+            connection = get_db()
 
-        connection.commit()
-        connection.close()
+            connection.execute("""
+                INSERT INTO expenses
+                (description, amount, category)
+                VALUES (?, ?, ?)
+            """, (description, amount, category))
+
+            connection.commit()
+            connection.close()
+
+        except ValueError:
+            pass
 
     return redirect("/")
 
@@ -111,7 +117,6 @@ def health():
             "Development"
         )
     }
-
 
 if __name__ == "__main__":
 
