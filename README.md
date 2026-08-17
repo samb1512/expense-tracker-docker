@@ -1,4 +1,4 @@
-# 💰 Expense Tracker – Dockerized Flask Application
+#  Expense Tracker – Dockerized Flask Application
 
 A simple and user-friendly Expense Tracker web application built using **Python Flask**, **SQLite**, and **Docker**.
 
@@ -6,7 +6,7 @@ The application allows users to add, view, calculate, and delete expenses. SQLit
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 The Expense Tracker is a web-based application designed to help users manage their daily expenses.
 
@@ -23,21 +23,19 @@ Users can:
 
 ---
 
-## ✨ Features
+## Features
 
-### 📌 Expense Management
+### Expense Management
 - Add expense description
 - Enter expense amount
 - Select expense category
 - View previously added expenses
 - Delete expenses
 
-### 📊 Expense Summary
+### Expense Summary
 - Automatically calculates total spending
 - Displays all stored expenses
 
-### 🗄️ Persistent Storage
-The application uses **SQLite** for storing expenses.
 
 The database is stored at:
 
