@@ -37,7 +37,4 @@ Users can:
 - Displays all stored expenses
 
 
-The database is stored at:
 
-```text
-/app/data/expenses.db
